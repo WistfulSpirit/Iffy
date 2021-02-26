@@ -13,12 +13,12 @@ namespace Sbt.Test.Refactoring.Tests
         public void MoveTest()
         {
             Map map = new Map(5, 5);
-            Tractor tractor = new Tractor(map, new Point(4, 4), Orientation.North);
+            Tractor tractor = new Tractor(map, new Point(3, 3), Orientation.North);
             tractor.Move();
-            Assert.AreEqual(new Point(4,5), tractor.Position);
+            Assert.AreEqual(new Point(3,4), tractor.Position);
             tractor.Turn(TurnDirection.CounterClockwise);
             tractor.Move();
-            Assert.AreEqual(new Point(3, 5), tractor.Position);
+            Assert.AreEqual(new Point(2, 4), tractor.Position);
         }
         [TestMethod]
         public void TurnTest()
@@ -41,7 +41,7 @@ namespace Sbt.Test.Refactoring.Tests
         [TestMethod]
         public void TurnAndMoveTest()
         {
-            Map map = new Map(5, 5);
+            Map map = new Map(6, 6);
             Tractor tractor = new Tractor(map, new Point(3, 3), Orientation.North);
 
             tractor.Move();
@@ -86,7 +86,7 @@ namespace Sbt.Test.Refactoring.Tests
         [TestMethod]
         public void TestAddUnit()
         {
-            Map map = new Map(5, 5);
+            Map map = new Map(6, 6);
             Tractor tractor = new Tractor(map, new Point(3, 3), Orientation.North);
             Wind wind = new Wind(map, Orientation.North);
             Stone stone = new Stone(map, new Point(4, 4));

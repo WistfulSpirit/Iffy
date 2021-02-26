@@ -16,7 +16,7 @@ namespace Sbt.Test.Refactoring.Units
 
         public virtual Point Move(int step) {
             position = this.MoveDefault(step);
-            if (position.X > map.Width || position.X < 0 || position.Y > map.Height || position.Y < 0)
+            if (position.X >= map.Width || position.X < 0 || position.Y >= map.Height || position.Y < 0)
                 throw new TractorInDitchException();
             return position;
         }

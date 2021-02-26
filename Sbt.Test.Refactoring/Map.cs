@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sbt.Test.Refactoring.Units;
 using Sbt.Test.Refactoring.Exceptions;
 
@@ -13,7 +14,9 @@ namespace Sbt.Test.Refactoring
         public Map(uint width, uint height) {
             this.width = width;
             this.height = height;
-            positionableUnits = new IPositionable[width+1, height+1];
+            if (width <= 0 || height <= 0)
+                throw new ArgumentOutOfRangeException("Width and Height must be greater than zero");
+            positionableUnits = new IPositionable[width, height];
             allUnits = new List<IUnit>();
         }
         public uint Height { get => height; }
