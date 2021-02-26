@@ -9,13 +9,13 @@
 
         public Orientation Orientation => orientation;
 
-        public Orientation Turn(TurnDirection turnDirection)
+        public virtual Orientation Turn(TurnDirection turnDirection)
         {
             orientation = this.TurnDefault(turnDirection);
             return orientation;
         }
 
-        public Orientation Turn()
+        public virtual Orientation Turn()
         {
             return Turn(TurnDirection.Clockwise);
         }

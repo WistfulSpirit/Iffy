@@ -14,23 +14,23 @@ namespace Sbt.Test.Refactoring.Units
         public Orientation Orientation => orientation;
         public Point Position => position; 
 
-        public Point Move(int step) {
+        public virtual Point Move(int step) {
             position = this.MoveDefault(step);
             if (position.X > map.Width || position.X < 0 || position.Y > map.Height || position.Y < 0)
                 throw new TractorInDitchException();
             return position;
         }
-        public Point Move() {
+        public virtual Point Move() {
             return Move(1);
         }
 
-        public Orientation Turn(TurnDirection turnDirection)
+        public virtual Orientation Turn(TurnDirection turnDirection)
         {
             orientation = this.TurnDefault(turnDirection);
             return orientation;
         }
 
-        public Orientation Turn()
+        public virtual Orientation Turn()
         {
             return Turn(TurnDirection.Clockwise);
         }

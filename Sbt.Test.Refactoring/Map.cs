@@ -19,11 +19,6 @@ namespace Sbt.Test.Refactoring
         public uint Height { get => height; }
         public uint Width { get => width; }
         public IPositionable[,] PositionableUnits => positionableUnits;
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="unit"></param>
-        /// <returns>false if position of the unit to place is already occupied</returns>
         public virtual void Add(IUnit unit) {
             
             IPositionable positionable = unit as IPositionable;
